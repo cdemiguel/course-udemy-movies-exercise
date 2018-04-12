@@ -7,3 +7,19 @@
   display:flex;
   justify-content: center;
 }
+
+.ListMovies-wrapper.container {
+  margin-top: 1rem;
+  padding: 2rem;
+  margin: 0 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.ListMovies-wrapper p {
+  text-align: center;
+  width: 100%;
+}
+
+.ListMovies-wrapper .column {
+  display: inline-block !important;
+}

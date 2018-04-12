@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
+import { MoviesList } from './components/MoviesList'
 
 import './App.css';
 import 'bulma/css/bulma.css'
@@ -15,6 +16,7 @@ class App extends Component {
   }
 
   render() {
+    const { results } = this.state
     return (
       <div className="App">
       {/* pasamos el texto como children */}
@@ -23,11 +25,11 @@ class App extends Component {
         <SearchForm onResults={ this._handleResults } />
       </div>
       
-      {this.state.results.length === 0 
-      ? <p>No hay resultados</p>
-      : this.state.results.map(movie=>{
-        return <p key={movie.imdbID}>{movie.Title}</p>
-      })}
+      <div className="ListMovies-wrapper container columns is-desktop">
+        {!results || results === 0 
+          ? <p>No hay resultados</p>
+          : <MoviesList movies={this.state.results} />}
+      </div>
 
       </div>
     );
